@@ -37,3 +37,6 @@ services:
         command: ["-de"]
         volumes:
           - ./kamailio:/etc/kamailio
+        environment:
+          - RPC_USER=${RPC_USER:-rpcuser}
+          - RPC_PASS=${RPC_PASS:-rpcpass}

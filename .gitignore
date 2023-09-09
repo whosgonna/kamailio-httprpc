@@ -1,0 +1,6 @@
+*.sw[a-z]
+.env
+/worktrees
+
+docker-compose_v3_alpine_mysql_local.yaml
+/dbbak

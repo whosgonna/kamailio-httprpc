@@ -1,34 +1,6 @@
 version: '3.9'
 services:
 
-    zabbix:
-        image: zabbix/zabbix-server-mysql:alpine-6.4.6
-        environment:
-          - DB_SERVER_HOST=sql
-          - MYSQL_USER=${MYSQL_USER:-zbx_user}
-          - MYSQL_PASSWORD=${MYSQL_PASSWORD:-zbx_pass}
-
-    web:
-        image: zabbix/zabbix-web-apache-mysql:alpine-6.4.6
-        environment:
-          - DB_SERVER_HOST=sql
-          - ZBX_SERVER_HOST=zabbix
-          - MYSQL_USER=${MYSQL_USER:-zbx_user}
-          - MYSQL_PASSWORD=${MYSQL_PASSWORD:-zbx_pass}
-        ports:
-          - 8080:8080
-
-
-    sql:
-        image: mariadb:10
-        environment:
-          - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-rootpass}
-          - MYSQL_USER=${MYSQL_USER:-zbx_user}
-          - MYSQL_PASSWORD=${MYSQL_PASSWORD:-zbx_pass}
-          - MYSQL_DATABASE=zabbix
-        volumes:
-          - ./dbback:/dbback
-
     kamailio:
         build: ./kamailio
         ports:

@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+
+    kamailio:
+        build: ./kamailio
+        ports:
+          - 8081:8081
+          - 5060:5060/udp
+        command: ["-de"]
+        volumes:
+          - ./kamailio:/etc/kamailio
+        environment:
+          - RPC_USER=${RPC_USER:-rpcuser}
+          - RPC_PASS=${RPC_PASS:-rpcpass}

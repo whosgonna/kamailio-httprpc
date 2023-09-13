@@ -6,6 +6,7 @@ services:
         ports:
           - 8081:8081
           - 5060:5060/udp
+          - 5060:5060
         command: ["-de"]
         volumes:
           - ./kamailio:/etc/kamailio
